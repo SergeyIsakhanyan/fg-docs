@@ -66,10 +66,27 @@ Reducer:
     // reset the table data here, and return
   }
 
-NOTE: In case we are using redux-persist, we also need to clean storage. Redux-persist keeps a copy of the state in a storage engine, and the state copy will be loaded on refresh.
+NOTE: In case we are using redux-persist, we also need to clean storage. 
+Redux-persist keeps a copy of the state in a storage engine, and the state copy will be loaded on refresh.
 
 
-In case of Redux we don't need to worry about huge store. One developer reported that they have ~500 action types, ~400 reducer cases, ~150 components, 5 middlewares, ~200 actions, ~2300 tests and no performance issues.
+In case of Redux we don't need to worry about huge store. 
+One developer reported that they have 
+   ~500 action types,
+   ~400 reducer cases,
+   ~150 components,
+   5 middlewares,
+   ~200 actions,
+   ~2300 tests 
+and no performance issues.
 
 
 Also we can use redux-reset - https://github.com/wwayne/redux-reset
+
+TO DO:
+
+• Redux data flex flow
+• Reset on route change
+• Reset on multiple requests
+
+
