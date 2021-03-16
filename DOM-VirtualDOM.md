@@ -19,7 +19,7 @@ Managing focus, text selection, or media playback.
 Triggering imperative animations.
 Integrating with third-party DOM libraries.
 Avoid using refs for anything that can be done declaratively.
-For example, instead of exposing open() and close() methods on a Dialog component, pass an isOpen prop to it.
+For example, instead of exposing `open()` and `close()` methods on a Dialog component, pass an `isOpen` prop to it.
 
 
 ![alt text](https://miro.medium.com/max/1400/0*wcRPb3x9X4T4oZGA)
