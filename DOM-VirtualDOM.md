@@ -31,6 +31,8 @@ First of all - the Virtual DOM was not invented by React, but React uses it and 
 
 #### The Virtual DOM is an abstraction of the HTML DOM. It is lightweight and detached from the browser-specific implementation details. Since the DOM itself was already an abstraction, the virtual DOM is, in fact, an abstraction of an abstraction.
 
+![alt text2](https://reactkungfu.com/assets/images/the-difference-between-virtual-dom-and-dom/meme.jpg)
+
 - You can think of it as a copy of the DOM, that can be updated without affecting the actual DOM.
 - It has all the same properties as the real DOM object, but doesn’t have the ability to write to the screen like the real DOM.
 - The virtual DOM gains it’s speed and efficiency from the fact that it’s lightweight.
