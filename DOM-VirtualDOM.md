@@ -50,3 +50,58 @@ First of all - the Virtual DOM was not invented by React, but React uses it and 
 - Virtual DOM is pure JS file and light weight, So capturing any update in Virtual DOM is much faster than directly updating on Real DOM.
 - React takes a few milliseconds before reconciliation. This allows react to bundle few processes. This increases efficiency and avoids unnecessary reprocessing. Because of this delay we should not rely on this.state.val just after setState().
 - React does shallow comparison of props value. We need to handle deep comparison separately, immutable is the most common way to handle it.
+
+
+
+# ReactElement vs ReactComponent
+
+### React Element
+
+- React elements are the building blocks of React applications.
+- React element is a light, stateless, virtual representation of a DOM Element.
+- React elements are immutable.
+
+```
+const element = <h1>Hello, world</h1>;
+```
+
+#### ReactElements lives in the virtual DOM. They make the basic nodes here. Their immutability makes them easy and fast to compare and update. This is the reason of great React performance.
+
+Once defined, ReactElements can be render into the “real” DOM. This is the moment when React ceases to control the elements. They become slow, boring DOM nodes:
+```
+var root = React.createElement('div');
+ReactDOM.render(root, document.getElementById('example'));
+```
+JSX compiles HTML tags to ReactElements. So this is equivalent to the above:
+```
+var root = <div />;
+ReactDOM.render(root, document.getElementById('example'));
+```
+
+
+### React Component
+
+- React components are small, reusable pieces of code that return a React element to be rendered to the page.
+- React components can have state - whenever the state changes, the component is rerendered.
+- React components don’t have the access to the virtual DOM.
+- React components have several “lifecycle methods” that you can override to run code at particular times in the process.
+
+The simplest version of React component is a plain JavaScript function that returns a React element:
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+Components can also be ES6 classes:
+```
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+### The only method you must define in a React.Component subclass is called render().
+
+![React Component Lifecycle Methods](react_component_lifecycle.png "React Component Lifecycle Methods")
