@@ -13,13 +13,15 @@ So, while HTML is a text, the DOM is an in-memory representation of this text.
 - JavaScript can react to all existing HTML events in the page
 - JavaScript can create new HTML events in the page for interaction must be used props,state and refs
 
-#### When to Use Refs
+#### When to Use Refs?
 There are a few good use cases for refs:
 Managing focus, text selection, or media playback.
 Triggering imperative animations.
 Integrating with third-party DOM libraries.
 Avoid using refs for anything that can be done declaratively.
 For example, instead of exposing `open()` and `close()` methods on a Dialog component, pass an `isOpen` prop to it.
+
+#### NOTE: We will talk more about `refs` in another topic.
 
 
 ![alt text](https://miro.medium.com/max/1400/0*wcRPb3x9X4T4oZGA)
@@ -37,6 +39,12 @@ First of all - the Virtual DOM was not invented by React, but React uses it and 
 - It has all the same properties as the real DOM object, but doesn’t have the ability to write to the screen like the real DOM.
 - The virtual DOM gains it’s speed and efficiency from the fact that it’s lightweight.
 - In fact, a new virtual DOM is created after every re-render.
+
+
+
+### Is the Shadow DOM the same as the Virtual DOM?
+No, they are different. The Shadow DOM is a browser technology designed primarily for scoping variables and CSS in web components. The virtual DOM is a concept implemented by libraries in JavaScript on top of browser APIs.
+
 
 
 ## How does updates work in React?
@@ -105,3 +113,23 @@ class Welcome extends React.Component {
 ### The only method you must define in a React.Component subclass is called render().
 
 ![React Component Lifecycle Methods](react_component_lifecycle.png "React Component Lifecycle Methods")
+
+
+Whenever a `ReactComponent` is changing the state, the `ReactComponent` is converted to the `ReactElement`. Now the `ReactElement` can be inserted to the virtual DOM, compared and updated fast and easily. How exactly - well, that’s the job of the diff algorithm.
+
+
+
+## Reconciliation
+
+React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called Reconciliation.
+
+React implements a heuristic O(n) algorithm based on two assumptions:
+- Two elements of different types will produce different trees.
+- The developer can hint at which child elements may be stable across different renders with a key prop.
+
+#### In practice, these assumptions are valid for almost all practical use cases.
+
+- In the case, props of child components depend on updated state of the parent component, the Browser DOM will be updated the same as Virtual DOM. [Image Link](https://miro.medium.com/max/4800/1*XY6YFulg1MXfqkE0S0BBKA.png)
+- In the case, props of child components DO NOT depend on updated state of the parent component, the Browser DOM will be updated differently with Virtual DOM. [Image Link](https://miro.medium.com/max/4800/1*BagS3xGxYxm1OYFsjRb5hA.png)
+
+
