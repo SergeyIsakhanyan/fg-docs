@@ -123,12 +123,5 @@ class Welcome extends React.Component {
 }
 ```
 
-### The only method you must define in a React.Component subclass is called render().
-
-![React Component Lifecycle Methods](react_component_lifecycle.png "React Component Lifecycle Methods")
-
-
-Whenever a `ReactComponent` is changing the state, the `ReactComponent` is converted to the `ReactElement`. Now the `ReactElement` can be inserted to the virtual DOM, compared and updated fast and easily. How exactly - well, that’s the job of the diff algorithm.
-
 
 [For more info about Component lifecycle and lifecycle methods follow this link.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/Lifecycle%20and%20Lifecycle%20Methods.md)
