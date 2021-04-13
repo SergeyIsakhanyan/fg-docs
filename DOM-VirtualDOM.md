@@ -60,6 +60,19 @@ No, they are different. The Shadow DOM is a browser technology designed primaril
 - React does shallow comparison of props value. We need to handle deep comparison separately, immutable is the most common way to handle it.
 
 
+## Reconciliation
+
+React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called Reconciliation.
+
+React implements a heuristic O(n) algorithm based on two assumptions:
+- Two elements of different types will produce different trees.
+- The developer can hint at which child elements may be stable across different renders with a key prop.
+
+#### In practice, these assumptions are valid for almost all practical use cases.
+
+- In the case, props of child components depend on updated state of the parent component, the Browser DOM will be updated the same as Virtual DOM. [Image Link](https://miro.medium.com/max/4800/1*XY6YFulg1MXfqkE0S0BBKA.png)
+- In the case, props of child components DO NOT depend on updated state of the parent component, the Browser DOM will be updated differently with Virtual DOM. [Image Link](https://miro.medium.com/max/4800/1*BagS3xGxYxm1OYFsjRb5hA.png)
+
 
 # ReactElement vs ReactComponent
 
@@ -118,18 +131,4 @@ class Welcome extends React.Component {
 Whenever a `ReactComponent` is changing the state, the `ReactComponent` is converted to the `ReactElement`. Now the `ReactElement` can be inserted to the virtual DOM, compared and updated fast and easily. How exactly - well, that’s the job of the diff algorithm.
 
 
-
-## Reconciliation
-
-React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called Reconciliation.
-
-React implements a heuristic O(n) algorithm based on two assumptions:
-- Two elements of different types will produce different trees.
-- The developer can hint at which child elements may be stable across different renders with a key prop.
-
-#### In practice, these assumptions are valid for almost all practical use cases.
-
-- In the case, props of child components depend on updated state of the parent component, the Browser DOM will be updated the same as Virtual DOM. [Image Link](https://miro.medium.com/max/4800/1*XY6YFulg1MXfqkE0S0BBKA.png)
-- In the case, props of child components DO NOT depend on updated state of the parent component, the Browser DOM will be updated differently with Virtual DOM. [Image Link](https://miro.medium.com/max/4800/1*BagS3xGxYxm1OYFsjRb5hA.png)
-
-
+[For more info about Component lifecycle and lifecycle methods follow this link.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/Lifecycle%20and%20Lifecycle%20Methods.md)
