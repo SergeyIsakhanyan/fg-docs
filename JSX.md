@@ -2,7 +2,7 @@
 
 - JSX stands for JavaScript XML (or JavaScript Syntax eXtension)
 - JSX allows us to write HTML in React
-- JSX produces React “elements”
+- JSX produces React Elements
 
 JSX is an XML/HTML-like syntax used by React that extends ECMAScript so that XML/HTML-like text can co-exist with JavaScript/React code.
 The syntax is intended to be used by preprocessors (i.e., transpilers like Babel) to transform HTML-like text found in JavaScript files into standard 
@@ -22,8 +22,7 @@ function getGreeting(user) {
 
 ### How is JSX get compiled?
 
-JSX is not valid JavaScript, web browsers cant read it directly. So, if JavaScript files contains JSX, that file will have to be transpiled. That means that before the file gets to the web browser, a JSX compiler will translate any JSX into regular JavaScript.
-JSX produces React Elements.  
+JSX is not valid JavaScript, web browsers cant read it directly. So, if JavaScript files contains JSX, that file will have to be transpiled. That means that before the file gets to the web browser, a JSX compiler will translate any JSX into regular JavaScript.   
 There’s an abstraction layer between JSX and what’s actually going on in React land. This abstraction layer is that JSX is always going to get transpiled to `React.createElement()` invocations (typically) via Babel. We will not typically invoke `React.createElement()` directly if we are using JSX.  
 ```
 const element = (
@@ -99,6 +98,36 @@ ReactDOM.render(reactNode, document.getElementById('app'));
 - All elements must be balanced. Tags such as `<br>` and `<img>`, which don’t have ending tags, need to be self-closed. So, instead of `<br>`, use `<br/>` and instead of `<img src="...">`, use `<img src="..." />`.
 - The attribute names are based on the DOM API, not on the HTML language specs. When interacting with the DOM API, tag attributes may have different names than those you use in HTML. One of such example is `class` and `className`. `<div class="some-class"></div>` in HTML becomes `<div className="some-class"></div>` in JSX.
 
+
+### Boolean Values, Null, Undefined
+
+`false`, `null`, `undefined`, and `true` are valid children. They simply don’t render. This can be useful to conditionally render React elements. These JSX expressions will all render to the same thing:
+
+```
+<div />
+
+<div></div>
+
+<div>{false}</div>
+
+<div>{null}</div>
+
+<div>{undefined}</div>
+
+<div>{true}</div>
+```
+
+Some [`“falsy”` values](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), such as the 0 number, are still rendered by React.
+
+```
+<div>
+  {props.messages.length &&
+    <MessageList messages={props.messages} />
+  }
+</div>
+
+// This will rendered as <div>0</div> if props.messages.length = 0
+```
 
 
 ### General points
