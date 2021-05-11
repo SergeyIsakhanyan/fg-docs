@@ -143,6 +143,8 @@ JSX is designed as an ECMAScript feature and the similarity to XML/HTML is only 
 
 ## JSX vs JS
 
+In most of the cases it’s only a need for the transpiler/bundler, which might not be configured to work with JSX files, but with JS! So you are forced to use JS files instead of JSX.
+
 ```
 let element = React.createElement('h1', {}, 'This is JavaScript')
 ```
@@ -151,13 +153,6 @@ let element = React.createElement('h1', {}, 'This is JavaScript')
 let element = <h1>This is JSX</h1>
 ```
 
-
-
-
-
-
-
-
-
-
-
+`JSX` is not a standard Javascript extension. So if you don't know which extension to use `.js` or `.jsx`, there is a good [discussion](https://github.com/airbnb/javascript/pull/985) about this topic.  
+In practice we are using both of these file types in a single project. The purpose of that to determine which files contain `pure js` and which ones `jsx`. On the other hand, it's not a good practice to change file extenstion from `js` to `jsx` or vice-verse just by adding one annotation. It can lead to extra work and loss of commit history.  
+We can clearly say that React Components contain `jsx` and the other files like actions, reducers, helpers, utils, etc. don't contain `jsx`. This can be the starting point for choosing files' extensions.
