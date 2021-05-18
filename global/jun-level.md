@@ -1,0 +1,44 @@
+## React Dev Junior Level
+- Internet, browsers
+  - What is internet and how does it work?
+  - What are browsers and how they work?
+  - What is HTTP/HTTPS?
+- Git
+  - What is version control and why we need it?
+  - What is git and how does it work?
+  - Must be familiar with one of these: Github, Bitbucket, GitLab
+- HTML
+  - What is HTML and why we need it?
+  - Anatomy of an HTML document.
+  - Anatomy of an HTML element.
+  - Nested HTML elements.
+  - Empty HTML elements.
+  - Headings, Paragraphs, Lists.
+  - Images.
+  - Links.
+- CSS
+  - What is CSS and why we need it?
+  - Anatomy of a CSS ruleset.
+  - Types of selectors.
+  - Selecting multiple elements.
+  - Fonts and texts.
+  - CSS layout - box model.
+  - Positioning.
+- JavaScript
+  - What is JavaScript and why we need it?
+  - Variables.
+  - Comments.
+  - Operators.
+  - Conditionals.
+  - Functions.
+  - Events.
+  - What is DOM?
+- React 
+  - CRA.
+  - JSX.
+  - React Elements and Components.
+  - Props and state.
+  - Class/Functional components.
+  - Lifecycle methods.
+  - Hooks.
+
