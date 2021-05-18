@@ -8,7 +8,7 @@ React lets you define components as classes or functions:
 
 Whenever a `ReactComponent` is changing the state, the `ReactComponent` is converted to the `ReactElement`. Now the `ReactElement` can be inserted to the virtual DOM, compared and updated fast and easily. How exactly - well, that’s the job of the diff algorithm. [For more about `ReactComponent`, `ReactElement` and `Virtual DOM` please click here](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/DOM-VirtualDOM.md).
 
-![React Component Lifecycle Methods](react_component_lifecycle.png "React Component Lifecycle Methods")
+![React Component Lifecycle Methods](/images/react_component_lifecycle.png "React Component Lifecycle Methods")
 
 ### In React, we have four main lifecycle phases.
 
