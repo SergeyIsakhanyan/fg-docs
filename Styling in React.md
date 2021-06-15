@@ -1,10 +1,10 @@
-### Styling in React
+## Styling in React
 - CSS Stylesheet and Classnames
 - CSS Modules
 - CSS-in-JS / Styled Components
 - Inline Styling
 
-## CSS Stylesheet and Classnames
+### CSS Stylesheet and Classnames
 
 CSS is the language we use to style a Web page. For using CSS we had to create a separate `.css` file, link our new CSS file by using the link tag in our HTML document, and after this, we had our CSS styling working fine. CSS class example:
 ```
@@ -152,6 +152,30 @@ export default App;
 - Style Files are divided into sub-parts on the basis of components.
 - We can have small styling as per each component.
 - Style files can be imported dynamically when a component is required.
+- Standard CSS files are easy for the browser to optimize.
+- Quickly iterate a new design.
+- Ease of use for markup specialists.
+- Universal - you can easily use the same stylesheet in a React project & a Vue project.
+
+#### Disadvantages of importing CSS in component are:
+- Readability.
+- Old and complicated CSS files can live on for years.
+- Global scope, specificity and cascading nature.
+- No true dynamic styling.
+
+
+## Performance measurements
+
+For testing performance used these configurations:
+- 4 different components - div, span, text input and button.
+- A big table containing 10 000 rows, each row includes those components.
+- Each component has a lot of styles.
+- Every test run at least 100 times for every package.
+
+- *First meaningful paint (time when page’s content appeared on the screen) has been calculated with lighthouse.*
+- *Render time has been calculated using componentWillMount and componentDidMount while rendering the same table.*
+
+![performance alt text](https://blog.primehammer.com/wp-content/uploads/2017/09/chart.png)
 
 
 
