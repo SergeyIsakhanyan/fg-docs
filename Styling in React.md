@@ -4,9 +4,9 @@
 - CSS-in-JS / Styled Components
 - Inline Styling
 
-### CSS Stylesheet and Classnames
+### CSS Stylesheet and Classnames - Importing CSS file in Component
+We can also create an individual style file for each component and import the style files in the component, we can divide the styling into multiple files and import it as per the requirement in the component. CSS Files are imported in the same way as we import script files.
 
-CSS is the language we use to style a Web page. For using CSS we had to create a separate `.css` file, link our new CSS file by using the link tag in our HTML document, and after this, we had our CSS styling working fine. CSS class example:
 ```
 // CSS
 
@@ -26,6 +26,42 @@ export default function MyComponent() {
     )
 }
 ```
+
+```
+import React from 'react';
+import './App.css';
+
+function App() {
+  return (
+      <header className="App-header">
+        <p style={{"margin": "1px", "padding": "5px"}}>
+          <code>src/App.js</code>
+        </p>
+        <a style={{"color": "red", "backgroundColor": "green"}}
+          className="App-link" href="https://reactjs.org" target="_blank">
+          Learn React
+        </a>
+      </header>
+  );
+}
+
+export default App;
+```
+
+### Advantages of importing CSS in component are:
+- Style Files are divided into sub-parts on the basis of components.
+- We can have small styling as per each component.
+- Style files can be imported dynamically when a component is required.
+- Standard CSS files are easy for the browser to optimize.
+- Quickly iterate a new design.
+- Ease of use for markup specialists.
+- Universal - you can easily use the same stylesheet in a React project & a Vue project.
+
+#### Disadvantages of importing CSS in component are:
+- Readability.
+- Old and complicated CSS files can live on for years.
+- Global scope, specificity and cascading nature.
+- No true dynamic styling.
 
 In the React ecosystem, we have a lot of different libraries for different purposes, and in the styling part of the frontend it’s the same, we have a lot of libraries and concepts to style our React applications. Here is one of the most used ways to style a React application:
 
@@ -123,47 +159,6 @@ const Button = () => (
 **NOTE 2:** The properties in our styles object must be camelCase.
 
 
-### Importing CSS file in Component
-
-We can also create an individual style file for each component and import the style files in the component, we can divide the styling into multiple files and import it as per the requirement in the component. CSS Files are imported in the same way as we import script files.
-
-```
-import React from 'react';
-import './App.css';
-
-function App() {
-  return (
-      <header className="App-header">
-        <p style={{"margin": "1px", "padding": "5px"}}>
-          <code>src/App.js</code>
-        </p>
-        <a style={{"color": "red", "backgroundColor": "green"}}
-          className="App-link" href="https://reactjs.org" target="_blank">
-          Learn React
-        </a>
-      </header>
-  );
-}
-
-export default App;
-```
-
-### Advantages of importing CSS in component are:
-- Style Files are divided into sub-parts on the basis of components.
-- We can have small styling as per each component.
-- Style files can be imported dynamically when a component is required.
-- Standard CSS files are easy for the browser to optimize.
-- Quickly iterate a new design.
-- Ease of use for markup specialists.
-- Universal - you can easily use the same stylesheet in a React project & a Vue project.
-
-#### Disadvantages of importing CSS in component are:
-- Readability.
-- Old and complicated CSS files can live on for years.
-- Global scope, specificity and cascading nature.
-- No true dynamic styling.
-
-
 ## Performance measurements
 
 For testing performance used these configurations:
@@ -176,15 +171,5 @@ For testing performance used these configurations:
 - *Render time has been calculated using componentWillMount and componentDidMount while rendering the same table.*
 
 ![performance alt text](https://blog.primehammer.com/wp-content/uploads/2017/09/chart.png)
-
-
-
-
-
-
-
-
-
-
 
 
