@@ -91,6 +91,10 @@ const Button = styled.button`
   border-radius: 6px;
 `; 
 ```
+
+styled-components generates an actual stylesheet with classes, and attaches those classes to the DOM nodes of styled components via the className prop.  
+It injects the generated stylesheet at the end of the head of the document during runtime.
+
 **NOTE**: Styled Components takes the actual CSS properties, not camelCased like React inline styling does.
 
 #### Advantages of Styled Components are:
@@ -170,6 +174,79 @@ For testing performance used these configurations:
 - *First meaningful paint (time when page’s content appeared on the screen) has been calculated with lighthouse.*
 - *Render time has been calculated using componentWillMount and componentDidMount while rendering the same table.*
 
-![performance alt text](https://blog.primehammer.com/wp-content/uploads/2017/09/chart.png)
+![performance alt text](https://blog.primehammer.com/wp-content/uploads/2017/09/chart.png)    
 
+
+# Bonus - What is BEM?
+
+#### BEM stands for Block, Element, and Modifier. It’s a CSS naming convention for writing cleaner and more readable CSS classes.
+
+```
+// Blocks are named as standard CSS classes
+.block {
+}
+
+// Elements declared with 2 underscores, after block
+.block__element {
+}
+
+// Modifiers declared with 2 dashes, after block or after element
+.block--modifier {
+}
+
+// element and modifier together
+.block__element--modifier {
+}
+```  
+
+- Blocks are independent, reusable and usually bigger components of a webpage.
+```
+.header {
+  // styles
+}
+```  
+      
+- Elements are children of blocks. An element can only have 1 parent Block, and can’t be used independently outside of that block.  
+  The naming of an element must start with its parent Block name, 2 underscores after it, and end with its own name:
+```
+.header__logo {
+  // styles
+}
+
+header__search {
+  // styles
+}
+
+.header__list {
+  // styles
+}
+
+.header__list__item {
+  // styles
+}
+
+// There is no such a thing as block__element__element
+```  
+      
+- Modifiers represent different states or styles of classes. They can be used both for blocks or elements.  
+  The naming of a modifier must start with its parent Block name, 2 dashes after it, and end with its own name.
+```
+.form {
+  // styles
+  .form--large {}  // Block modifiers
+  .form--small {}
+}
+
+.form {
+  // styles
+  .form__button {
+    // styles
+    
+    .form__button--red {}  // Block Element Modifiers
+    .form__button--green {}
+   }
+}
+```
+      
+#### *NOTE:* Using BEM or not is up to you, your team and depends on the project.
 
