@@ -60,6 +60,7 @@ React.createElement(
   )
 );
 ```
+[![Edit JSX - Element: React.createElement](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/jsx-element-reactcreateelement-ce1g1?autoresize=1&fontsize=14&hidenavigation=1&theme=dark)
 
 #### Events in JSX
 
@@ -87,6 +88,7 @@ var reactNode = <div onClick={clickHandler}>click</div>;
 
 ReactDOM.render(reactNode, document.getElementById('app'));
 ```
+[![Edit JSX - Element: React.createElement](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/jsx-element-reactcreateelement-ce1g1?autoresize=1&fontsize=14&hidenavigation=1&theme=dark)
 
 [More about `React.createElement()`.](https://reactjs.org/docs/react-api.html#createelement)  
 [Read about React Elements here.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/DOM-VirtualDOM.md#reactelement-vs-reactcomponent)  
@@ -128,6 +130,7 @@ Some [`“falsy”` values](https://developer.mozilla.org/en-US/docs/Glossary/Fa
 
 // This will rendered as <div>0</div> if props.messages.length = 0
 ```
+[![Edit JSX - Element: React.createElement](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/jsx-element-reactcreateelement-ce1g1?autoresize=1&fontsize=14&hidenavigation=1&theme=dark)
 
 
 ### General points
