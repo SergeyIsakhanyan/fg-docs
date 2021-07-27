@@ -70,6 +70,110 @@ The `location` object within the history object is shaped like so:
 { pathname, search, hash, state }
 ```
 
+## Routes
+
+The `<Route/>` component is one of the most important building blocks in the React Router package. It renders the appropriate user interface when the current location matches the route’s `path`.
+
+```
+<Route path=”/items”/>
+
+or
+
+<Route exact path=”/items” />
+```
+
+First one is matched when the pathname is `/items` or, all other paths that start with `/items/` for example `/items/2`. Second one ensures that only the pathname that exactly matches the current location is rendered.
+
+The `<Route/>` component provides three props that can be used to determine which component to render:
+- **component** - defines the React element that will be returned by the `Route` when the path is matched
+- **render**    - provides the ability for inline rendering and passing extra props to the element
+- **children**  - is similar to the render prop, but element defined by the child prop is returned for all paths whether the current location matches the path or not
+
+```
+<Route 
+  exact 
+  path=”/items” 
+  component={Items}
+/>
+
+<Route 
+  exact 
+  path=”/items” 
+  render={() => (<div>List of Items</div>)}
+/>
+
+const cat = {category: “food”}
+<Route 
+  exact path=”/items” 
+  render={props => <Items {…props} data={cat}/>}
+/>
+
+<Route children={props => <Items {…props}/>}/>
+```
+
+## Switch
+The react-router library also contains a `<Switch/>` component that is used to wrap multiple `<Route/>` components. The Switch component only picks the first matching route among all its children routes.
+
+```
+<Switch>
+  <Route 
+    path=”/items” 
+    render={() => (<div><em>List of items</em></div>)}
+  />
+  <Route 
+    path=”/items/2" 
+    render={() => (<div>Item with id of 2</div>)}
+  />
+</Switch>
+```
+
+## Link 
+The `react-router` package also contains a `<Link/>` component that is used to navigate the different parts of an application by way of hyperlinks. The main difference is that using the Link component does not reload the page but rather, changes the UI.
+
+```
+<div>
+    Home Component
+    <ul>
+      <li>
+        <Link to=”/items”>Items</Link>
+      </li>
+      <li>
+        <Link to=”/category”>Category</Link>
+       </li>
+    </ul>
+</div>
+```
+
+## Redirect
+The `react-router` package also contains a `<Redirect/>` component which will navigate to a new location. The new location will override the current location in the history stack.
+
+```
+<Route exact path="/">
+  {loggedIn ? <Redirect to="/dashboard" /> : <HomePage />}
+</Route>
+
+<Redirect
+  to={{
+    pathname: "/login",
+    search: "",
+    state: {}
+  }}
+/>
+
+<Redirect from="/old-path" to="/new-path" />
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
