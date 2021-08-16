@@ -159,7 +159,8 @@ The `react-router` package also contains a `<Redirect/>` component which will na
     state: {}
   }}
 />
-
+```
+```
 <Redirect from="/old-path" to="/new-path" />
 ```
 
