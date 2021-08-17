@@ -156,7 +156,7 @@ The `react-router` package also contains a `<Redirect/>` component which will na
   to={{
     pathname: "/login",
     search: "",
-    state: {}
+    state: {},
   }}
 />
 ```
@@ -164,6 +164,36 @@ The `react-router` package also contains a `<Redirect/>` component which will na
 <Redirect from="/old-path" to="/new-path" />
 ```
 
+# Nested Routing
+
+### What is nested routing?
+
+Nested route is the route which is child of another route. Nested routing can be thought of multiple forward slash in the URL.  
+
+```
+www.organization.com/employees
+www.organization.com/employees/:employeeId
+www.organization.com/employees/:employeeId/projects
+www.organization.com/projects/:projectId
+```
+
+```
+<Router history={hashHistory}>
+  <Route component={App} path="/">
+    <Route component={Home} path="/home"></Route>
+    <Route component={View1} path="/view1"></Route>
+    <Route component={View2} path="/view2"></Route>
+  </Route>
+</Router>
+```
+
+### Why nested routing?
+
+Nested routing is essentioal for url sharing, dynamicity and SEO. URL sharing means that one can reach directly to the desired page with desired data. This will automatically make sure the components and features are implemented to work independently.  
+
+*NOTE:* no extra dependency needed for nested routing.
+
+![](https://miro.medium.com/max/1400/0*VVhTWZ30CkHQHsEJ)
 
 
 
