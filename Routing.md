@@ -152,13 +152,7 @@ The `react-router` package also contains a `<Redirect/>` component which will na
   {loggedIn ? <Redirect to="/dashboard" /> : <HomePage />}
 </Route>
 
-<Redirect
-  to={{
-    pathname: "/login",
-    search: "",
-    state: {},
-  }}
-/>
+<Redirect to={{ pathname: "/login", search: "", state: {} }} />
 ```
 ```
 <Redirect from="/old-path" to="/new-path" />
