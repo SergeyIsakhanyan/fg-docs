@@ -190,6 +190,52 @@ Nested routing is essentioal for url sharing, dynamicity and SEO. URL sharing me
 ![](https://miro.medium.com/max/1400/0*VVhTWZ30CkHQHsEJ)
 
 
+# Route's Lazy Loading
+
+The concept of lazy loading our React components is really simple. Load the minimal code to the browser that will render a page. Load additional small chunks of code when needed. By loading less JavaScript code to the browser, that will default to better performance and better TTI results.
+*TTI is the result of how long does it take for the user to actually be able to interact with the application or site.*
+
+In React for Lazy Loading we will use `React.Lazy` and `Suspense`. The React.lazy function lets you render a dynamic import as a regular component.
+
+```
+// Before 
+import OtherComponent from './OtherComponent';
+
+// After
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+```
+`import()` must return a Promise which resolves to a module with a default export containing a React component.
+The lazy component should then be rendered inside a Suspense component, which allows us to show some fallback content.
+
+```
+<Suspense fallback={<div>Loading...</div>}>
+  <Component />
+</Suspense>
+```
+
+Router level code splitting and Lazy Loading will look like this:
+
+```
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+const Home = lazy(() => import('./routes/Home'));
+const About = lazy(() => import('./routes/About'));
+
+const App = () => (
+  <Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/about" component={About}/>
+      </Switch>
+    </Suspense>
+  </Router>
+);
+```
+
+The Switch component job is to only render a single route component.
 
 
 
