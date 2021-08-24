@@ -239,7 +239,7 @@ The Switch component job is to only render a single route component.
 
 
 
-
+### [History API and Location object](https://github.com/SergeyIsakhanyan/fg-docs/blob/master/HistoryAPI-Location.md)
 
 
 
