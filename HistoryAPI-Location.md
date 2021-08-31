@@ -38,6 +38,23 @@ Also we can determine the number of pages in the history stack:
 const numberOfEntries = window.history.length
 ```
 
+### history object methods
+
+`history.pushState()` method adds an entry to the browser's session history stack.
+```
+history.pushState(state, title [, url])
+```
+
+`history.replaceState()` method modifies the current history entry, replacing it with the stateObj, title, and URL passed in the method parameters.
+```
+history.replaceState(stateObj, title, [url])
+```
+
+`history.state` property returns a value representing the state at the top of the history stack.
+```
+const currentState = history.state
+```
+
 
 # Location
 
@@ -56,5 +73,12 @@ Both the Document and Window interface have such a linked Location, accessible v
 | .search         	| ? followed by Query String                      	|
 | .hash           	| # followed by the Anchor or Fragment identifier 	|
 | .href           	| Full URL                                        	|
+
+| window.location 	| Result                                          	|
+|-----------------	|-------------------------------------------------	|
+| .assign         	| This method causes the window to load and display the document at the URL specified |
+| .replace          | This method does the same as .assign but there is one difference, the current page  |
+|                   | will not be saved in session History. We won't be able to use back button           |
+| 
 
 
