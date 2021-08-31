@@ -189,6 +189,192 @@ Nested routing is essentioal for url sharing, dynamicity and SEO. URL sharing me
 
 ![](https://miro.medium.com/max/1400/0*VVhTWZ30CkHQHsEJ)
 
+### What can solve nested routing?
+
+There are various techniques to implement layouts, each with their own pros and cons:
+
+- Using Render Props
+- Using HOC's
+- Nesting routes
+
+```
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// Layout
+const Layout = ({ children }) => (
+  <div>
+    <header>My header</header>
+    {children}
+    <header>My footer</header>
+  </div>
+);
+
+// Pages
+const PageA = () => <Layout>This is Page A</Layout>;
+const PageB = () => <Layout>This is Page B</Layout>;
+
+// Routes
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/pageA" component={PageA} />
+        <Route path="/pageB" component={PageB} />
+      </Switch>
+    </Router>
+  );
+}
+```
+
+In case of using render props React will remount the entire layout on every route transition. Another potential issue with this technique is that the Route will always mount the page component regardless of any conditional logic in the Layout.
+
+#### _NOTE:_ In this approach `page` component will always mount before `layout` component.  
+
+
+```
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// Layout
+const Layout = ({ children }) => (
+  <div>
+    <header>My header</header>
+    {children}
+    <header>My footer</header>
+  </div>
+);
+
+// HOC
+const withLayout = (Component) => (props) => (
+  <Layout>
+    {/* All props are passed through to the Component being wrapped */}
+    <Component {...props} /> /
+  </Layout>
+);
+
+// Pages
+const PageA = withLayout(() => <p>This is Page A</p>);
+const PageB = withLayout(() => <p>This is Page B</p>);
+
+// Routes
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/pageA" component={PageA} />
+        <Route path="/pageB" component={PageB} />
+      </Switch>
+    </Router>
+  );
+}
+```
+
+Using HOC's for layout will solve the problem of the `page` component mounting before the `layout` component. Below components hierarchy for using render props and for HOC's:  
+
+```
+// render props
+
+Page ↳ Layout ↳ Render prop content
+```
+
+```
+// HOC
+
+withPage() ↳ Layout ↳ Page
+```
+
+This makes the mounting order of the components a bit more sensible.
+
+```
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// Layout
+const BackendLayout = ({ children }) => (
+  <div>
+    <header>This is the admin backend!</header>
+    <section>{children}</section>
+  </div>
+);
+
+// Pages
+const ViewUsersPage = () => <>This is a backend page</>;
+const ViewBlogpostsPage = () => <>This is another backend page</>;
+
+// Routes
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route
+          path="/backend"
+          render={({ match }) => <BackendRoutes basePath={match.path} />}
+        />
+        {/* ... additional top-level routes using other layouts ... */}
+      </Switch>
+    </Router>
+  );
+}
+
+
+
+// Nested backend routes
+const BackendRoutes = ({ basePath, username }) => (
+  <BackendLayout username={username}>
+    <Route path={`${basePath}/users`} component={ViewUsersPage} />
+    <Route path={`${basePath}/blogposts`} component={ViewBlogpostsPage} />
+    {/* ... additional routes under /backend ... */}
+  </BackendLayout>
+);
+```
+
+As you can see, the whole Route is nested in the Layout. This will indeed prevent the Layout from remounting on page transitions.  
+
+
+# Dynamic Route URL
+
+```
+<Router>
+  <div>
+    <h2>Accounts</h2>
+
+    <ul>
+      <li>
+        <Link to="/netflix">Netflix</Link>
+      </li>
+      <li>
+        <Link to="/zillow-group">Zillow Group</Link>
+      </li>
+      <li>
+        <Link to="/yahoo">Yahoo</Link>
+      </li>
+      <li>
+        <Link to="/modus-create">Modus Create</Link>
+      </li>
+    </ul>
+
+    <Switch>
+      <Route path="/:id" children={<Child />} />
+    </Switch>
+  </div>
+</Router>
+```
+
+Accessing dynamic path parameter in a URL:
+```
+this.props.match.params.id
+```
+
+Also we can have more than one route parameters:
+```
+<Route
+  exact
+  path="/genres/:genreName/:genreId"
+  component={GenreList}
+/>
+```
+
 
 # Route's Lazy Loading
 
