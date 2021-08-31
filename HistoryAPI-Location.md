@@ -77,5 +77,4 @@ Both the Document and Window interface have such a linked Location, accessible v
 | window.location 	| Result                                          	|
 |-----------------	|-------------------------------------------------	|
 | .assign         	| This method causes the window to load and display the document at the URL specified |
-| .replace          | This method does the same as .assign but there is one difference, the current page
-                      will not be saved in session History. We won't be able to use back button           |
+| .replace          | This method does the same as .assign but there is one difference, the current page will not be saved in session History. We won't be able to use back button |
