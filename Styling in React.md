@@ -1,3 +1,5 @@
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
+
 ## Styling in React
 - CSS Stylesheet and Classnames
 - CSS Modules
@@ -250,3 +252,4 @@ header__search {
       
 #### *NOTE:* Using BEM or not is up to you, your team and depends on the project.
 
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
