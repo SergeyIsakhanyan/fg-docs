@@ -1,3 +1,5 @@
+### [Home](https://sergeyisakhanyan.github.io/fg-docs)
+
 # History API
 
 The DOM Window object provides access to the browser's session history through the `history` object.
@@ -78,3 +80,6 @@ Both the Document and Window interface have such a linked Location, accessible v
 |-----------------	|-------------------------------------------------	|
 | .assign         	| This method causes the window to load and display the document at the URL specified |
 | .replace          | This method does the same as .assign but there is one difference, the current page will not be saved in session History. We won't be able to use back button |
+
+
+### [Home](https://sergeyisakhanyan.github.io/fg-docs)
