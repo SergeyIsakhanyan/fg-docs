@@ -64,6 +64,8 @@ The Location interface represents the location (URL) of the object it is linked 
 Both the Document and Window interface have such a linked Location, accessible via `document.location` and `window.location` respectively.
 *According to the W3C, they are the same. In reality, for cross browser safety, you should use `window.location` rather than `document.location`.*
 
+### window.location properties
+
 | window.location 	| Returns                                         	|
 |-----------------	|-------------------------------------------------	|
 | .origin         	| Base URL (Protocol + hostname + port number)    	|
@@ -75,6 +77,8 @@ Both the Document and Window interface have such a linked Location, accessible v
 | .search         	| ? followed by Query String                      	|
 | .hash           	| # followed by the Anchor or Fragment identifier 	|
 | .href           	| Full URL                                        	|
+
+### window.location methods
 
 | window.location 	| Result                                          	|
 |-----------------	|-------------------------------------------------	|
