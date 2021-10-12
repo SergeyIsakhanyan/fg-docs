@@ -1,8 +1,8 @@
 # Articles
 
 - [DOM and Virtual DOM.](https://sergeyisakhanyan.github.io/fg-docs/DOM-VirtualDOM.html)
-- [Lifecycle and Lifecycle Methods.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/Lifecycle%20and%20Lifecycle%20Methods.md)
-- [Clear Redux Store: practical examples.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/clear-redux-store)
-- [JSX.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/JSX.md)
-- [Styling in React](https://github.com/SergeyIsakhanyan/fg-docs/blob/master/Styling%20in%20React.md)
-- [Routing](https://github.com/SergeyIsakhanyan/fg-docs/blob/master/Routing.md)
+- [Lifecycle and Lifecycle Methods.](https://sergeyisakhanyan.github.io/fg-docs/Lifecycle%20and%20Lifecycle%20Methods.html)
+- [Clear Redux Store: practical examples.](https://sergeyisakhanyan.github.io/fg-docs/clear-redux-store.html)
+- [JSX.](https://sergeyisakhanyan.github.io/fg-docs/JSX.html)
+- [Styling in React](https://sergeyisakhanyan.github.io/fg-docs/Styling%20in%20React.html)
+- [Routing](https://sergeyisakhanyan.github.io/fg-docs/Routing.html)
