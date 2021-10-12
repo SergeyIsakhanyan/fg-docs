@@ -1,3 +1,5 @@
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
+
 ### For clearing data from Redux store we can create action responsible for that:
 
 ```
@@ -95,4 +97,5 @@ TO DO:
 - Reset on route change
 - Reset on multiple requests
 
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
 
