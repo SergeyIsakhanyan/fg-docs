@@ -1,3 +1,5 @@
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
+
 # React JSX
 
 - JSX stands for JavaScript XML (or JavaScript Syntax eXtension)
@@ -91,7 +93,7 @@ ReactDOM.render(reactNode, document.getElementById('app'));
 [![Edit JSX - Element: React.createElement](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/jsx-element-reactcreateelement-ce1g1?autoresize=1&fontsize=14&hidenavigation=1&theme=dark)
 
 [More about `React.createElement()`.](https://reactjs.org/docs/react-api.html#createelement)  
-[Read about React Elements here.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/DOM-VirtualDOM.md#reactelement-vs-reactcomponent)  
+[Read about React Elements here.](https://sergeyisakhanyan.github.io/fg-docs/DOM-VirtualDOM.html#reactelement-vs-reactcomponent)  
 [Checkout online Babel compiler here.](https://babeljs.io/repl/#?browsers=&build=&builtIns=false&corejs=3.6&spec=false&loose=false&code_lz=DwWQngQgrgLjD2A7ABAY3gG3gJwLwCIAjDKAU32QGcALAQwBN4B3AZQEsAvU3AbwCYAvgD4AUMmQBhDG1QBrZCFIjgAenDQ4SIUA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=true&fileSize=false&timeTravel=false&sourceType=module&lineWrap=false&presets=es2015%2Creact%2Cstage-0&prettier=true&targets=&version=7.13.17&externalPlugins=)  
 
 ### Differences Between JSX and HTML
@@ -159,3 +161,5 @@ let element = <h1>This is JSX</h1>
 `JSX` is not a standard Javascript extension. So if you don't know which extension to use `.js` or `.jsx`, there is a good [discussion](https://github.com/airbnb/javascript/pull/985) about this topic.  
 In practice we are using both of these file types in a single project. The purpose of that to determine which files contain `pure js` and which ones `jsx`. On the other hand, it's not a good practice to change file extenstion from `js` to `jsx` or vice-verse just by adding one annotation. It can lead to extra work and loss of commit history.  
 We can clearly say that React Components contain `jsx` and the other files like actions, reducers, helpers, utils, etc. don't contain `jsx`. This can be the starting point for choosing files' extensions.
+
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
