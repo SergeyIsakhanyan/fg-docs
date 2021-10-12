@@ -1,3 +1,5 @@
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
+
 # Routing
 
 Routing is the ability to move between different parts of an application when a user enters a URL or clicks an element (link, button, icon, image etc) 
@@ -425,7 +427,9 @@ The Switch component job is to only render a single route component.
 
 
 
-### [History API and Location object](https://github.com/SergeyIsakhanyan/fg-docs/blob/master/HistoryAPI-Location.md)
+### [History API and Location object](https://sergeyisakhanyan.github.io/fg-docs/HistoryAPI-Location.html)
+
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
 
 
 
