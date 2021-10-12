@@ -6,3 +6,4 @@
 - [JSX](https://sergeyisakhanyan.github.io/fg-docs/JSX.html)
 - [Styling in React](https://sergeyisakhanyan.github.io/fg-docs/Styling%20in%20React.html)
 - [Routing](https://sergeyisakhanyan.github.io/fg-docs/Routing.html)
+- [History API](https://sergeyisakhanyan.github.io/fg-docs/HistoryAPI-Location.html)
