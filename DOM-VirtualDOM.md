@@ -1,3 +1,5 @@
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
+
 # Document Object Model (DOM)
 
 DOM is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document. 
@@ -124,4 +126,5 @@ class Welcome extends React.Component {
 ```
 
 
-[For more info about Component lifecycle and lifecycle methods follow this link.](https://github.com/SergeyIsakhanyan/fg-docs/blob/main/Lifecycle%20and%20Lifecycle%20Methods.md)
+[For more info about Component lifecycle and lifecycle methods follow this link.](https://sergeyisakhanyan.github.io/fg-docs/Lifecycle%20and%20Lifecycle%20Methods.html)
+### [Home](https://sergeyisakhanyan.github.io/fg-docs/)
