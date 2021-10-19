@@ -1,4 +1,4 @@
-# Articles
+# React Focus Group Articles
 
 - [DOM and Virtual DOM](https://sergeyisakhanyan.github.io/fg-docs/DOM-VirtualDOM.html)
 - [Lifecycle and Lifecycle Methods](https://sergeyisakhanyan.github.io/fg-docs/Lifecycle%20and%20Lifecycle%20Methods.html)
