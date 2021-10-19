@@ -84,6 +84,124 @@ Both the Document and Window interface have such a linked Location, accessible v
 |-----------------	|-------------------------------------------------	|
 | .assign         	| This method causes the window to load and display the document at the URL specified |
 | .replace          | This method does the same as .assign but there is one difference, the current page will not be saved in session History. We won't be able to use back button |
+| .reload         	| Reloads the current URL, like the Refresh button. |    
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+  
+# React Navigation using `window.location`
+
+First of all we need to render component based on `pathname`. The way to do that we need to check if `pathname` is equal to wanted path or not. If they are the same then render corespondent component.
+
+```
+// App
+
+import React, { useState } from "react"
+
+import Accordion from "./components/Accordion"
+import ColorSelect from "./components/ColorSelect"
+
+const showAccordion = () => {
+  if (window.location.pathname === "/") {
+    return <Accordion />
+  }
+}
+
+const showColorSelect = () => {
+  if (window.location.pathname === "/color-select") {
+    return <ColorSelect />
+  }
+}
+
+export default () => {
+  return (
+    <div>
+      {showAccordion()}
+      {showColorSelect()}
+    </div>
+  )
+}
+```
+
+In above code we can see that we have lots of repetitive checkings. Now we can create reusable route component:
+
+```
+// Route
+
+const Route = ({ path, children }) => {
+  return window.location.pathname === path ? children : null
+}
+```
+
+Now we can use our `Route` component like this:
+
+```
+// App
+
+import React, { useState } from "react"
+
+import Route from "./components/Route"
+import Accordion from "./components/Accordion"
+import ColorSelect from "./components/ColorSelect"
+
+export default () => {
+  return (
+    <div>
+      <Route path="/">
+        <Accordion />
+      </Route>
+      <Route path="/color-select">
+        <ColorSelect />
+      </Route>
+    </div>
+  )
+}
+```
+
+Next step will be creating `Header` component for navigation. It's just a new component with links.
+
+```
+import React from "react";
+
+const Header = () => {
+  return (
+    <div className="ui secondary pointing menu">
+      <a href="/" className="item">
+        Accordion
+      </a>
+      <a href="/color-select" className="item">
+        Color Select
+      </a>
+      <a href="/translate" className="item">
+        Translate
+      </a>
+      <a href="/search" className="item">
+        Wiki Search
+      </a>
+      <a href="/all" className="item">
+        All Widgets
+      </a>
+    </div>
+  );
+};
+
+export default Header;
+```
+
+Then we need to add our `Header` component to `App` component:
+```
+    ...
+    <div>
+      <Header />
+      <Route path="/">
+        <Accordion />
+      </Route>
+      ...
+    </div>
+```
+
 
 
 ### [Home](https://sergeyisakhanyan.github.io/fg-docs)
