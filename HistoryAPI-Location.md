@@ -202,6 +202,137 @@ Then we need to add our `Header` component to `App` component:
     </div>
 ```
 
+This is great but currently the browser is completely reloading the whole page every time we click on one of these nav items. That means we are reloading all our JavaScript and CSS every time we click on a nav link. For preventing page reload we will create new component called `Link`. 
+And in that `Link` component we need add click event handler.
+
+```
+import React from "react";
+
+const Link = ({ className, href, children }) => {
+  // prevent full page reload
+  const onClick = (event) => {
+    event.preventDefault();
+  };
+
+  return (
+    <a className={className} href={href} onClick={onClick}>
+      {children}
+    </a>
+  );
+};
+
+export default Link;
+```
+
+Now we need to change the visibility of the URL and the content without actually reloading the page. There is a method built into the browser to manually update the URL: `window.history.pushState()`.
+
+
+```
+import React from "react";
+
+const Link = ({ className, href, children }) => {
+  // prevent full page reload
+  const onClick = (event) => {
+    event.preventDefault();
+    window.history.pushState({}, "", href) // added
+  };
+
+  return (
+    <a className={className} href={href} onClick={onClick}>
+      {children}
+    </a>
+  );
+};
+
+export default Link;
+```
+
+We are successfully updating the URL when we click the Link components now. And now we need to alert our routes that the URL has changed, so that they can update the content in the window. We can do this with another native window method called `window.dispatchEvent()` and a React method called `PopStateEvent()`.
+
+```
+import React from "react";
+
+const Link = ({ className, href, children }) => {
+  
+  const onClick = (event) => {
+    // prevent full page reload
+    event.preventDefault();
+    // update url
+    window.history.pushState({}, "", href);
+
+    // communicate to Routes that URL has changed
+    const navEvent = new PopStateEvent('popstate');
+    window.dispatchEvent(navEvent);
+  };
+
+  return (
+    <a className={className} href={href} onClick={onClick}>
+      {children}
+    </a>
+  );
+};
+
+export default Link;
+```
+
+Next we need to add custom event, like `click`, and call it `popstate` and to get trigger event every time the URL changes. Then we need to add an event listener to our `Route` component and say that every time event `popstae` occurs we fire the function `onLocationChange()`. Then we need to add cleaner function to clean up the event listener.
+
+```
+import { useEffect } from 'react';
+
+const Route = ({ path, children }) => {
+    useEffect(() => {
+        // define callback as separate function so it can be removed later with cleanup function
+        const onLocationChange = () => {
+            console.log('Location Change');
+        }
+        window.addEventListener('popstate', onLocationChange);
+        // clean up event listener
+        return () => {
+            window.removeEventListener('popstate', onLocationChange)
+        };
+    }, [])
+
+    return window.location.pathname === path
+    ? children
+    : null;
+}
+
+export default Route;
+```
+
+Now that the `Route` component can detect URL change it needs to re-render itself. Because React component re-renders itself every the state is changing, we are going to add `currentPath` to our state and update it every time the URL changes.
+
+```
+import { useEffect, useState } from 'react';
+
+const Route = ({ path, children }) => {
+    // state to track URL and force component to re-render on change
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+    useEffect(() => {
+        // define callback as separate function so it can be removed later with cleanup function
+        const onLocationChange = () => {
+            // update path state to current window URL
+            setCurrentPath(window.location.pathname);
+        }
+
+        // listen for popstate event
+        window.addEventListener('popstate', onLocationChange);
+
+        // clean up event listener
+        return () => {
+            window.removeEventListener('popstate', onLocationChange)
+        };
+    }, [])
+
+    return currentPath === path // updated
+    ? children
+    : null;
+}
+
+export default Route;
+```
 
 
 ### [Home](https://sergeyisakhanyan.github.io/fg-docs)
