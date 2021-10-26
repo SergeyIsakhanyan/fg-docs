@@ -141,10 +141,33 @@ The `react-router` package also contains a `<Link/>` component that is used to n
       </li>
       <li>
         <Link to=”/category”>Category</Link>
-       </li>
+      </li>
+      <li>
+        <Link
+          to={{
+            pathname: "/courses",
+            search: "?sort=name",
+            hash: "#the-hash",
+            state: { fromDashboard: true }
+          }}
+        />
+      </li>
+      <li>
+        <Link to={location => `${location.pathname}?sort=name`} />
+      </li>
+      <li>
+        <Link to="/courses" replace />
+      </li>
     </ul>
 </div>
 ```
+
+- **to:** a string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
+- **to:** an object that can have any of the following properties: 
+    - `pathname`: a string representing the path to link to.
+    - `search`: a string representation of query parameters.
+    - `hash`: a hash to put in the URL, e.g. #a-hash.
+    - `state`: state to persist to the location.
 
 ## Redirect
 The `react-router` package also contains a `<Redirect/>` component which will navigate to a new location. The new location will override the current location in the history stack.
@@ -424,6 +447,31 @@ const App = () => (
 ```
 
 The Switch component job is to only render a single route component.
+
+# React-Router History object
+
+React-router uses [history](https://github.com/remix-run/history) dependency which provides several different implementations for managing session history in JavaScript in various environments.
+
+- `browser history`: a DOM-specific implementation, useful in web browsers that support the HTML5 history API
+- `hash history`: a DOM-specific implementation for legacy web browsers
+- `memory history`: an in-memory history implementation, useful in testing and non-DOM environments like React Native
+
+history objects typically have the following properties and methods:
+- `length`: (number) The number of entries in the history stack
+- `action`: (string) The current action (PUSH, REPLACE, or POP)
+- `location`: (object) The current location. May have the following properties:
+    - `pathname`: (string) The path of the URL
+    - `search`: (string) The URL query string
+    - `hash`: (string) The URL hash fragment
+    - `state`: (object) location-specific state that was provided to e.g. push(path, state) when this location was pushed onto the stack. Only available in browser and memory history.
+- `push(path, [state])`: (function) Pushes a new entry onto the history stack
+- `replace(path, [state])`: (function) Replaces the current entry on the history stack
+- `go(n)`: (function) Moves the pointer in the history stack by n entries
+- `goBack()`: (function) Equivalent to go(-1)
+- `goForward()`: (function) Equivalent to go(1)
+- `block(prompt)`: (function) Prevents navigation
+
+_**NOTE:**_ **history object is mutable.**
 
 
 
