@@ -143,11 +143,6 @@ The `react-router` package also contains a `<Link/>` component that is used to n
         <Link to=”/category”>Category</Link>
       </li>
       <li>
-        <Link
-          to={{ pathname: "/courses", search: "?sort=name", hash: "#the-hash", state: { fromDashboard: true }, }}
-        />
-      </li>
-      <li>
         <Link to={location => `${location.pathname}?sort=name`} />
       </li>
       <li>
