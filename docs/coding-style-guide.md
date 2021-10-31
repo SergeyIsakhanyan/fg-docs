@@ -639,7 +639,7 @@ Anyway, prefer to use named function only if the function name is nessecary. Arr
     }
   }
 
-  // Bad - may couse performance issues, creates new function on every render
+  // Good
   class extends React.Component {
     onClick = () => {
       // ...
