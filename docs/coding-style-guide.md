@@ -2,9 +2,16 @@
 
 ## Table of Contents
 
- - [**Basic**](#basic)
- - [**Class component vs stateless / functional component**](#class-component-vs-functional-component)
- - [**Naming**](#naming)
+ - **ESLint** configurable
+   - [**Basic**](#basic)
+   - [**Naming**](#naming)
+  
+ - **Non configurable**
+   - [**Class component vs stateless / functional component**](#class-component-vs-functional-component)
+   - [**Naming**](#naming)
+ 
+ 
+
  - [**Quotes**](#quotes)
  - [**Spacing**](#spacing)
  - [**Props**](#props)
@@ -19,7 +26,7 @@
 ## Basic
 
 * Only include one React component per file (`eslint: react/no-multi-comp`).
-* Always use JSX syntax.
+* Always use JSX syntax (`eslint: react/jsx-filename-extension`).
 
 &nbsp;
 &nbsp;
