@@ -5,8 +5,6 @@
  - [**Naming**](#naming)
  - [**Quotes**](#quotes)
  - [**Props**](#props)
- - [**Parentheses**](#parentheses)
- - [**Tags**](#tags)
  - [**Methods**](#methods)
 
 &nbsp;
