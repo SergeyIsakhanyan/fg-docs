@@ -74,9 +74,7 @@ Anyway, prefer to use named function only if the function name is nessecary. Arr
 * **Filename:**
   - Use `PascalCase` for React components.
   - Use `camelCase` for React components' instance.
-  - Use `lowercase` for redux's folders names, actions, reducers.
-  - Use `snake_case` for core's folders names.
-  - Use `lowercase` for style files' names.
+  - Use `lowercase` for folders names, actions, reducers, style files' names.
 * **Component Name:**
   - Use the filename or folder name as the component name.
   - Use `index.jsx` for the root component of a directory/folder.
